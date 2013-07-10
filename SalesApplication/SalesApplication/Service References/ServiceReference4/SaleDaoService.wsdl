@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SaveSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSale" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveSaleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveSale" />
+  </wsdl:message>
+  <wsdl:message name="SaveSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveSaleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SaleDaoServiceSoap">
+    <wsdl:operation name="SaveSale">
+      <wsdl:input message="tns:SaveSaleSoapIn" />
+      <wsdl:output message="tns:SaveSaleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SaleDaoServiceSoap" type="tns:SaleDaoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveSale">
+      <soap:operation soapAction="http://tempuri.org/SaveSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SaleDaoServiceSoap12" type="tns:SaleDaoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveSale">
+      <soap12:operation soapAction="http://tempuri.org/SaveSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SaleDaoService">
+    <wsdl:port name="SaleDaoServiceSoap" binding="tns:SaleDaoServiceSoap">
+      <soap:address location="http://localhost:11762/Service/SaleDaoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SaleDaoServiceSoap12" binding="tns:SaleDaoServiceSoap12">
+      <soap12:address location="http://localhost:11762/Service/SaleDaoService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

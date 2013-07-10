@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7F65B370-13FA-4C61-B886-3900BBF8970C}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SalesApplication</RootNamespace>
+    <AssemblyName>SalesApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JsonFx">
+      <HintPath>E:\微价网 Beta\W.Object\bin\Debug\JsonFx.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RSAController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Objects\DESAttribute.cs" />
+    <Compile Include="Models\Objects\Sale.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference3\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\Json.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="MyXml\0b5c8d00-267b-4b40-b90f-75ab5f78c905.xml" />
+    <Content Include="MyXml\0b5c8d00-267b-4b40-b90f-75ab5f78c905public.xml" />
+    <Content Include="MyXml\1173f824-f3f5-4849-9fad-8c5e5465945c.xml" />
+    <Content Include="MyXml\1173f824-f3f5-4849-9fad-8c5e5465945cpublic.xml" />
+    <Content Include="MyXml\124d1884-ad62-4884-9c02-19bac608daac.xml" />
+    <Content Include="MyXml\124d1884-ad62-4884-9c02-19bac608daacpublic.xml" />
+    <Content Include="MyXml\1667a657-5f74-447e-b5c4-a93005f2db93.xml" />
+    <Content Include="MyXml\1667a657-5f74-447e-b5c4-a93005f2db93public.xml" />
+    <Content Include="MyXml\1e42322b-1e31-4209-826a-26081fed415a.xml" />
+    <Content Include="MyXml\1e42322b-1e31-4209-826a-26081fed415apublic.xml" />
+    <Content Include="MyXml\3071f00c-7756-4735-a631-9411ab46675e.xml" />
+    <Content Include="MyXml\3071f00c-7756-4735-a631-9411ab46675epublic.xml" />
+    <Content Include="MyXml\3730c3c4-335d-4a0c-824b-f596ead39271.xml" />
+    <Content Include="MyXml\3730c3c4-335d-4a0c-824b-f596ead39271public.xml" />
+    <Content Include="MyXml\3bc4482f-95f9-42fd-8963-88d949a6149f.xml" />
+    <Content Include="MyXml\3bc4482f-95f9-42fd-8963-88d949a6149fpublic.xml" />
+    <Content Include="MyXml\44eca03a-7de5-4b9e-bcd9-b78d2a407fd6.xml" />
+    <Content Include="MyXml\44eca03a-7de5-4b9e-bcd9-b78d2a407fd6public.xml" />
+    <Content Include="MyXml\72940ba1-9cf0-4cc3-9886-b36b746cfc15.xml" />
+    <Content Include="MyXml\72940ba1-9cf0-4cc3-9886-b36b746cfc15public.xml" />
+    <Content Include="MyXml\829466e0-9faa-4542-95e8-5d89d8849dc2.xml" />
+    <Content Include="MyXml\829466e0-9faa-4542-95e8-5d89d8849dc2public.xml" />
+    <Content Include="MyXml\88ff2c06-d384-4e22-bc8a-0612188d09b0.xml" />
+    <Content Include="MyXml\88ff2c06-d384-4e22-bc8a-0612188d09b0public.xml" />
+    <Content Include="MyXml\89a945f8-b2bd-4250-9a47-0ace0e7d1e8c.xml" />
+    <Content Include="MyXml\89a945f8-b2bd-4250-9a47-0ace0e7d1e8cpublic.xml" />
+    <Content Include="MyXml\8ebc729f-b00d-495b-9bbc-4746d350ad5f.xml" />
+    <Content Include="MyXml\8ebc729f-b00d-495b-9bbc-4746d350ad5fpublic.xml" />
+    <Content Include="MyXml\9d95e555-3668-41b5-8611-6ec29abba85e.xml" />
+    <Content Include="MyXml\9d95e555-3668-41b5-8611-6ec29abba85epublic.xml" />
+    <Content Include="MyXml\ac2b4ff8-25ad-47e2-883f-ed6532ad31d9.xml" />
+    <Content Include="MyXml\ac2b4ff8-25ad-47e2-883f-ed6532ad31d9public.xml" />
+    <Content Include="MyXml\bc789b48-be2c-4a2a-b8cc-e9ee1b271125.xml" />
+    <Content Include="MyXml\bc789b48-be2c-4a2a-b8cc-e9ee1b271125public.xml" />
+    <Content Include="MyXml\ca3461e4-41f2-4e62-b95a-88a928551558.xml" />
+    <Content Include="MyXml\ca3461e4-41f2-4e62-b95a-88a928551558public.xml" />
+    <Content Include="MyXml\db17c931-74a1-4786-8d7b-4ed3b1bec5aa.xml" />
+    <Content Include="MyXml\db17c931-74a1-4786-8d7b-4ed3b1bec5aapublic.xml" />
+    <Content Include="MyXml\df38ad49-5f84-437e-af4f-00a4569a8dfe.xml" />
+    <Content Include="MyXml\df38ad49-5f84-437e-af4f-00a4569a8dfepublic.xml" />
+    <Content Include="MyXml\e04b864b-1c49-4968-85e8-0b37d9af7af7.xml" />
+    <Content Include="MyXml\e04b864b-1c49-4968-85e8-0b37d9af7af7public.xml" />
+    <Content Include="MyXml\ea92f14c-8410-4d49-bf67-d444a7f82142.xml" />
+    <Content Include="MyXml\ea92f14c-8410-4d49-bf67-d444a7f82142public.xml" />
+    <Content Include="MyXml\f6849f89-fc7a-4e4f-9cf2-35beba3424ed.xml" />
+    <Content Include="MyXml\f6849f89-fc7a-4e4f-9cf2-35beba3424edpublic.xml" />
+    <Content Include="MyXml\ff432d7d-6250-4c76-b705-bef0a31ce8ee.xml" />
+    <Content Include="MyXml\ff432d7d-6250-4c76-b705-bef0a31ce8eepublic.xml" />
+    <Content Include="Scripts\crypto\Barrett.js" />
+    <Content Include="Scripts\crypto\BigInt.js" />
+    <Content Include="Scripts\crypto\RSA.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <None Include="Service References\ServiceReference1\decrpyt.wsdl" />
+    <None Include="Service References\ServiceReference2\getKey.wsdl" />
+    <None Include="Service References\ServiceReference3\ValidateService.disco" />
+    <None Include="Service References\ServiceReference3\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference3\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference3\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference2\getKey.disco" />
+    <None Include="Service References\ServiceReference2\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference2\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference4\SaleDaoService.disco" />
+    <None Include="Service References\ServiceReference4\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference4\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference4\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\decrpyt.disco" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <None Include="Service References\ServiceReference3\ValidateService.wsdl" />
+    <None Include="Service References\ServiceReference4\SaleDaoService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Sale\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Sale\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Sale\Success.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\My97DatePicker\WdatePicker.js.bak" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference2\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference3\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference4\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4178</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
