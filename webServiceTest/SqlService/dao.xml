@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<service type="SqlService.Service.SaleDaoService">
+  <param name="idal" type="DAO.implements.DBDaoImpl" />
+</service>
