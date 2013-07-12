@@ -10,13 +10,16 @@ using System.Configuration;
 using SalesApplication.ServiceReference1;
 using SalesApplication.ServiceReference2;
 using SalesApplication.ServiceReference3;
-using SalesApplication.ServiceReference4;
+using SalesApplication.DaoServiceReference;
 using System.Web.Script.Serialization;
 using System.Collections;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using System.Text;
+using System.Reflection;
+
+using DALService.Objects;
 
 namespace SalesApplication.Controllers
 {
@@ -48,8 +51,10 @@ namespace SalesApplication.Controllers
         public ActionResult Create()
         {
             Sale sale = new Sale();
+            Product product = new Product();
 
             System.Type saleType = typeof(Sale);
+            System.Type productType = typeof(Product);
             Dictionary<string, string> hashMap = new Dictionary<string, string>();
 
 
@@ -82,9 +87,33 @@ namespace SalesApplication.Controllers
             {
                 foreach (var item in hashMap)
                 {
-                    System.Type t = saleType.GetProperty(item.Key).PropertyType;
-                    var arg = Convert.ChangeType(item.Value, t);
-                    saleType.GetProperty(item.Key).SetValue(sale, arg, null);
+
+                    PropertyInfo property = null;
+                    try
+                    {
+                        if (item.Key == "product")
+                        {
+                            property = productType.GetProperty("id");
+                            property.SetValue(product, Convert.ChangeType(item.Value, property.PropertyType), null);
+                        }
+                        property = saleType.GetProperty(item.Key);
+                        property.SetValue(sale, Convert.ChangeType(item.Value, property.PropertyType), null);
+                        
+                    }
+                    catch (System.Exception ex)
+                    {
+                        try
+                        {
+                            property = productType.GetProperty(item.Key);
+                            property.SetValue(product, Convert.ChangeType(item.Value, property.PropertyType), null);
+                        }
+                        catch (System.Exception ex2)
+                        {
+
+                        }
+
+                    }
+
                 }
             }
             else
@@ -93,9 +122,11 @@ namespace SalesApplication.Controllers
             }
 
             //调用sale存储webService客户端对象，执行保存业务逻辑
+           // sale.product = product;
             String strSale = SalesApplication.Tools.Json.Serializer(sale);
+            String strProduct = SalesApplication.Tools.Json.Serializer(product);
             SaleDaoServiceSoapClient saleService = new SaleDaoServiceSoapClient();
-            if (saleService.SaveSale(strSale))
+            if (saleService.SaveSale(strSale,strProduct))
                 return View("Success");
             return View("Error");
 

@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objects\DESAttribute.cs" />
+    <Compile Include="Objects\Product.cs" />
     <Compile Include="Objects\RsaModel.cs.cs" />
     <Compile Include="Objects\Sale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

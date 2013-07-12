@@ -6,6 +6,8 @@ using System.Web.Services;
 using RSAService.Tools;
 using DALService.Tools;
 using SalesApplication.Models.Objects;
+using DALService.Objects;
+
 
 namespace webService
 {
@@ -25,10 +27,25 @@ namespace webService
         {
             Dictionary<string, string> hashMap = (Dictionary<string, string>)Json.Deserializer(strDic, typeof(Dictionary<string, string>));
             Dictionary<string, string> t_hashMap = new Dictionary<string, string>();
+            Boolean des = false;
             foreach (var item in hashMap)
             {
+                try
+                {
+                    des = AttributeUtil.getDESAttribute(typeof(Sale), item.Key);
+                }
+                catch (System.Exception ex)
+                {
+                    try
+                    {
+                        des = AttributeUtil.getDESAttribute(typeof(Product), item.Key);
+                    }
+                    catch (System.Exception ex2)
+                    {
+                    }
+                }
 
-                Boolean des = AttributeUtil.getDESAttribute(typeof(Sale), item.Key);
+
                 string result;
                 if (des)
                 {

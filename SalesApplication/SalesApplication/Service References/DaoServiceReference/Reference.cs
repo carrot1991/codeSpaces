@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesApplication.ServiceReference4 {
+namespace SalesApplication.DaoServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference4.SaleDaoServiceSoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DaoServiceReference.SaleDaoServiceSoap")]
     public interface SaleDaoServiceSoap {
         
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 strSale 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveSale", ReplyAction="*")]
-        SalesApplication.ServiceReference4.SaveSaleResponse SaveSale(SalesApplication.ServiceReference4.SaveSaleRequest request);
+        SalesApplication.DaoServiceReference.SaveSaleResponse SaveSale(SalesApplication.DaoServiceReference.SaveSaleRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -27,12 +27,12 @@ namespace SalesApplication.ServiceReference4 {
     public partial class SaveSaleRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="SaveSale", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference4.SaveSaleRequestBody Body;
+        public SalesApplication.DaoServiceReference.SaveSaleRequestBody Body;
         
         public SaveSaleRequest() {
         }
         
-        public SaveSaleRequest(SalesApplication.ServiceReference4.SaveSaleRequestBody Body) {
+        public SaveSaleRequest(SalesApplication.DaoServiceReference.SaveSaleRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -46,11 +46,15 @@ namespace SalesApplication.ServiceReference4 {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string strSale;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string strProduct;
+        
         public SaveSaleRequestBody() {
         }
         
-        public SaveSaleRequestBody(string strSale) {
+        public SaveSaleRequestBody(string strSale, string strProduct) {
             this.strSale = strSale;
+            this.strProduct = strProduct;
         }
     }
     
@@ -61,12 +65,12 @@ namespace SalesApplication.ServiceReference4 {
     public partial class SaveSaleResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="SaveSaleResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference4.SaveSaleResponseBody Body;
+        public SalesApplication.DaoServiceReference.SaveSaleResponseBody Body;
         
         public SaveSaleResponse() {
         }
         
-        public SaveSaleResponse(SalesApplication.ServiceReference4.SaveSaleResponseBody Body) {
+        public SaveSaleResponse(SalesApplication.DaoServiceReference.SaveSaleResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -89,12 +93,12 @@ namespace SalesApplication.ServiceReference4 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface SaleDaoServiceSoapChannel : SalesApplication.ServiceReference4.SaleDaoServiceSoap, System.ServiceModel.IClientChannel {
+    public interface SaleDaoServiceSoapChannel : SalesApplication.DaoServiceReference.SaleDaoServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SaleDaoServiceSoapClient : System.ServiceModel.ClientBase<SalesApplication.ServiceReference4.SaleDaoServiceSoap>, SalesApplication.ServiceReference4.SaleDaoServiceSoap {
+    public partial class SaleDaoServiceSoapClient : System.ServiceModel.ClientBase<SalesApplication.DaoServiceReference.SaleDaoServiceSoap>, SalesApplication.DaoServiceReference.SaleDaoServiceSoap {
         
         public SaleDaoServiceSoapClient() {
         }
@@ -116,15 +120,16 @@ namespace SalesApplication.ServiceReference4 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SalesApplication.ServiceReference4.SaveSaleResponse SalesApplication.ServiceReference4.SaleDaoServiceSoap.SaveSale(SalesApplication.ServiceReference4.SaveSaleRequest request) {
+        SalesApplication.DaoServiceReference.SaveSaleResponse SalesApplication.DaoServiceReference.SaleDaoServiceSoap.SaveSale(SalesApplication.DaoServiceReference.SaveSaleRequest request) {
             return base.Channel.SaveSale(request);
         }
         
-        public bool SaveSale(string strSale) {
-            SalesApplication.ServiceReference4.SaveSaleRequest inValue = new SalesApplication.ServiceReference4.SaveSaleRequest();
-            inValue.Body = new SalesApplication.ServiceReference4.SaveSaleRequestBody();
+        public bool SaveSale(string strSale, string strProduct) {
+            SalesApplication.DaoServiceReference.SaveSaleRequest inValue = new SalesApplication.DaoServiceReference.SaveSaleRequest();
+            inValue.Body = new SalesApplication.DaoServiceReference.SaveSaleRequestBody();
             inValue.Body.strSale = strSale;
-            SalesApplication.ServiceReference4.SaveSaleResponse retVal = ((SalesApplication.ServiceReference4.SaleDaoServiceSoap)(this)).SaveSale(inValue);
+            inValue.Body.strProduct = strProduct;
+            SalesApplication.DaoServiceReference.SaveSaleResponse retVal = ((SalesApplication.DaoServiceReference.SaleDaoServiceSoap)(this)).SaveSale(inValue);
             return retVal.Body.SaveSaleResult;
         }
     }

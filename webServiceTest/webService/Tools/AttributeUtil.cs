@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using SalesApplication.Models.Objects;
+using DALService.Objects;
 
 
 namespace RSAService.Tools

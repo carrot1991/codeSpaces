@@ -9,6 +9,8 @@ using DAO.implements;
 using DALService.Tools;
 using System.Configuration;
 using SqlService.Tools;
+using DALService.Objects;
+
 
 namespace SqlService.Service
 {
@@ -25,13 +27,14 @@ namespace SqlService.Service
         IDAL idal = (IDAL)Resolver.createInstance("SqlService.Service.SaleDaoService", "idal");
 
         [WebMethod]
-        public Boolean SaveSale(String strSale)
+        public Boolean SaveSale(String strSale,String strProduct)
         {
 
             
 
             Sale sale = (Sale)Json.Deserializer(strSale, typeof(Sale));
-            return idal.save(sale);
+            Product product = (Product)Json.Deserializer(strProduct, typeof(Product));
+            return idal.saveTWO(product,sale);
         }
 
     }

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Services;
 using DALService.Tools;
 using SalesApplication.Models.Objects;
+using DALService.Objects;
+
 
 namespace ValidateService
 {
@@ -22,12 +24,22 @@ namespace ValidateService
         [WebMethod]
         public Boolean validate(String strDictionary)
         {
-            Dictionary<string, string> hashMap  = (Dictionary<string, string>)Json.Deserializer(strDictionary,typeof(Dictionary<string, string>));
+            Dictionary<string, string> hashMap = (Dictionary<string, string>)Json.Deserializer(strDictionary, typeof(Dictionary<string, string>));
             foreach (var item in hashMap)
             {
+                Type t = null;
                 try
                 {
-                    Type t = typeof(Sale).GetProperty(item.Key).PropertyType;
+                    t = typeof(Sale).GetProperty(item.Key).PropertyType;
+                }
+                catch (System.Exception ex)
+                {
+                    t = typeof(Product).GetProperty(item.Key).PropertyType;
+                }
+                if (null == t)
+                    return false;
+                try
+                {
                     var arg = Convert.ChangeType(item.Value, t);
                 }
                 catch (Exception e)
@@ -35,7 +47,9 @@ namespace ValidateService
                     return false;
                 }
             }
-
+            int unitprice = (int)(Convert.ChangeType((hashMap["unitprice"].ToString()), typeof(int)));
+            int cost = (int)(Convert.ChangeType((hashMap["cost"].ToString()), typeof(int)));
+            if (unitprice < cost) return false;
             return true;
         }
     }
