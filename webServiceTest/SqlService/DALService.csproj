@@ -71,7 +71,7 @@
     <Compile Include="Objects\RsaModel.cs.cs" />
     <Compile Include="Objects\Sale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XMLReader.cs" />
+    <Compile Include="Tools\XMLReader.cs" />
     <Compile Include="Service\SaleDaoService.asmx.cs">
       <DependentUpon>SaleDaoService.asmx</DependentUpon>
       <SubType>Component</SubType>

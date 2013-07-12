@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigUtil.cs" />
+    <Compile Include="Tools\ConfigUtil.cs" />
     <Compile Include="implements\DBDaoImpl.cs" />
     <Compile Include="interface\IDAL.cs" />
     <Compile Include="Program.cs" />

@@ -5,23 +5,26 @@ using System.Text;
 using System.Reflection;
 using DAO.implements;
 
-namespace SqlService.Tools
+namespace DALService.Tools
 {
+    
     class Resolver
     {
+        //存放实例列表
         static IDictionary<string, IDictionary<string, Object>> instance_hashMap = null;
 
-
+        //根据Service名称与属性名称 获取 属性相应的实例，这些实例都放在一个HashMap中
         public static Object createInstance(string service_type,string param_name)
         {
-            Object result;
-            if(instance_hashMap==null)
-            {
-                instance_hashMap = new Dictionary<string, IDictionary<string, Object>>();
-                XMLReader.readXml2Resolver();
-            }
+            Object result;           
             try
             {
+                if (instance_hashMap == null)
+                {
+                    instance_hashMap = new Dictionary<string, IDictionary<string, Object>>();
+                    XMLReader xmlReader = new XMLReader();
+                    xmlReader.readXml2Resolver();
+                }
                 result = instance_hashMap[service_type][param_name];
             }
             catch (Exception e)

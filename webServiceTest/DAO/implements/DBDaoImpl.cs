@@ -5,6 +5,8 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using System.Reflection;
+using DAO._interface;
+using DAO.Tools;
 
 namespace DAO.implements
 {
@@ -15,14 +17,14 @@ namespace DAO.implements
 
         public DBDaoImpl()
         {
-            connection = new SqlConnection(ConfigUtil.getConnectionString());
+            initConnection();
         }
       
-
+        //插入两个对象，并对此进行事务管理
         public Boolean saveTWO(Object t1,Object t2)
         {
 
-            connection.Open();
+            openConnection();
             SqlTransaction tran = connection.BeginTransaction();
             
             try
@@ -32,12 +34,13 @@ namespace DAO.implements
                 string sql2 = createInsertOrUpdateSql(t2);
                 SqlCommand sqlco = new SqlCommand(sql1, connection);
                 sqlco.Transaction = tran;
-
-              
+         
                 SqlCommand sqlco2 = new SqlCommand(sql2, connection);
                 sqlco2.Transaction = tran;
+
                 sqlco.ExecuteNonQuery();
                 sqlco2.ExecuteNonQuery();
+
                 tran.Commit();
                 return true;
 
@@ -50,7 +53,7 @@ namespace DAO.implements
             }
             finally
             {
-                connection.Close();
+                closeConnection();
             }
         }
         public Boolean save(Object t)
@@ -191,11 +194,12 @@ namespace DAO.implements
                 Type propertyType = prop.PropertyType;
                 Boolean isClass = propertyType.IsClass && !(prop.PropertyType.Name == "String");
                 object propertyValue = prop.GetValue(t, null);
-                //若是自定义类型属性，则insert语句中设置该对象的主键值
+                //若是自定义类型属性，则 SET 属性名称 =  该类对象的主键值，在此设定主键名称均为id
                 if (isClass)
                 {
-                    Object proId = propertyType.GetProperty("id");
-                    updateSql.Append("SET " + prop.Name + "=\'" + proId.ToString() + "\',");
+                    PropertyInfo proId = propertyType.GetProperty("id");
+                    Object value = proId.GetValue(propertyValue, null);
+                    updateSql.Append("SET " + prop.Name + "=\'" + value.ToString() + "\',");
                 }
 
                 updateSql.Append("SET " + prop.Name + "=\'" + propertyValue.ToString() + "\',");
@@ -221,6 +225,7 @@ namespace DAO.implements
                 Type propertyType = prop.PropertyType;
                 Boolean isClass = propertyType.IsClass && !(prop.PropertyType.Name == "String");
                 object propertyValue = prop.GetValue(t, null);
+                //若是自定义类型属性，则 INSERT  该自定义属性的主键值，在此设定主键名称均为id
                 if (isClass)
                 {
                     PropertyInfo id = propertyType.GetProperty("id");
@@ -235,11 +240,26 @@ namespace DAO.implements
             return insertSql.ToString();
         }
 
+
+        public void initConnection()
+        {
+            try
+            {
+                //生成数据库连接字符串，获得Connection 连接
+                ConfigUtil configUtil = new ConfigUtil();
+                connection = new SqlConnection(configUtil.getConnectionString());
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
         public SqlConnection getConnection()
         {
             return connection;
         }
-
         void openConnection()
         {
             if (connection.State == ConnectionState.Closed)

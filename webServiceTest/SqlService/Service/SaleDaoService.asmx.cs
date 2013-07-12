@@ -4,15 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using DAO;
-using SalesApplication.Models.Objects;
 using DAO.implements;
 using DALService.Tools;
 using System.Configuration;
-using SqlService.Tools;
+
 using DALService.Objects;
+using DAO._interface;
 
 
-namespace SqlService.Service
+namespace DALService.Service
 {
     /// <summary>
     /// SaleDaoService 的摘要说明
@@ -27,17 +27,19 @@ namespace SqlService.Service
         IDAL idal = (IDAL)Resolver.createInstance("SqlService.Service.SaleDaoService", "idal");
 
         [WebMethod]
-        public Boolean SaveSale(String strSale, String strProduct)
+        public Boolean SaveSale(String strSale,String strProduct)
         {
+
+            
+
+            Sale sale = (Sale)Json.Deserializer(strSale, typeof(Sale));
+            Product product = (Product)Json.Deserializer(strProduct, typeof(Product));
             try
             {
-                Sale sale = (Sale)Json.Deserializer(strSale, typeof(Sale));
-                Product product = (Product)Json.Deserializer(strProduct, typeof(Product));
                 return idal.saveTWO(product, sale);
             }
-            catch (System.Exception ex)
-            {
-                Console.WriteLine(ex);
+            catch (Exception e) { 
+                System.Console.WriteLine(e.Message);
                 return false;
             }
         }

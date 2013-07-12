@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace DAO
+namespace DAO._interface
 {
     public interface IDAL
     {
