@@ -9,7 +9,7 @@ using SalesApplication.Models.Objects;
 using DALService.Objects;
 
 
-namespace webService
+namespace RSAService.Service
 {
     /// <summary>
     /// decrpyt 的摘要说明
@@ -51,7 +51,7 @@ namespace webService
                 {
                     try
                     {
-                        result = RSAUtils.Decrypt(item.Value, keyFileName);
+                        result = new RSAUtils().Decrypt(item.Value, keyFileName);
                     }
                     catch (Exception e)
                     {

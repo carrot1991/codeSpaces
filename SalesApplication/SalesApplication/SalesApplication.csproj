@@ -80,17 +80,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\DecServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference2\Reference.cs">
+    <Compile Include="Service References\RSAServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference3\Reference.cs">
+    <Compile Include="Service References\ValidateServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -163,26 +163,19 @@
     <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
     <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
     <None Include="Service References\DaoServiceReference\SaleDaoService.wsdl" />
-    <None Include="Service References\ServiceReference1\decrpyt.wsdl" />
-    <None Include="Service References\ServiceReference2\getKey.wsdl" />
-    <None Include="Service References\ServiceReference3\ValidateService.disco" />
-    <None Include="Service References\ServiceReference3\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference3\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference3\Reference.svcmap">
+    <None Include="Service References\DecServiceReference\decrpyt.wsdl" />
+    <None Include="Service References\RSAServiceReference\getKey.wsdl" />
+    <None Include="Service References\ValidateServiceReference\ValidateService.disco" />
+    <None Include="Service References\ValidateServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ValidateServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ValidateServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ServiceReference2\getKey.disco" />
-    <None Include="Service References\ServiceReference2\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference2\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference2\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServiceReference1\decrpyt.disco" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\DecServiceReference\decrpyt.disco" />
+    <None Include="Service References\DecServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\DecServiceReference\configuration.svcinfo" />
+    <None Include="Service References\DecServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -190,6 +183,13 @@
     <None Include="Service References\DaoServiceReference\configuration91.svcinfo" />
     <None Include="Service References\DaoServiceReference\configuration.svcinfo" />
     <None Include="Service References\DaoServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\RSAServiceReference\getKey.disco" />
+    <None Include="Service References\RSAServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\RSAServiceReference\configuration.svcinfo" />
+    <None Include="Service References\RSAServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -244,7 +244,7 @@
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <None Include="Service References\ServiceReference3\ValidateService.wsdl" />
+    <None Include="Service References\ValidateServiceReference\ValidateService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -266,9 +266,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\DaoServiceReference\" />
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
-    <WCFMetadataStorage Include="Service References\ServiceReference2\" />
-    <WCFMetadataStorage Include="Service References\ServiceReference3\" />
+    <WCFMetadataStorage Include="Service References\DecServiceReference\" />
+    <WCFMetadataStorage Include="Service References\RSAServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ValidateServiceReference\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

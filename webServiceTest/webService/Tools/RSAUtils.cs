@@ -10,6 +10,7 @@ namespace RSAService.Tools
 {
     class RSAUtils
     {
+
         private static CspParameters cspParams = new CspParameters();
 
         static RSAUtils()
@@ -17,7 +18,7 @@ namespace RSAService.Tools
             cspParams.Flags = CspProviderFlags.UseMachineKeyStore;
         }
 
-        public static String GetKeyFunction()
+        public  String GetKeyFunction()
         {
             string keyFileName = System.Web.HttpContext.Current.Server.MapPath("~/MyXml/");
             const int keySize = 1024;
@@ -26,7 +27,6 @@ namespace RSAService.Tools
 
             string str = sp.ToXmlString(true);
             string KeyXml = Guid.NewGuid().ToString();
-            //System.Web.HttpContext.Current.Session["key"] = KeyXml;
             TextWriter writer = new StreamWriter(keyFileName + KeyXml + ".xml");
             writer.Write(str);
             writer.Close();
@@ -38,7 +38,7 @@ namespace RSAService.Tools
             return KeyXml;
         }
 
-        public static String getRSA_E(String keyFileName)
+        public  String getRSA_E(String keyFileName)
         {
             RSACryptoServiceProvider _sp = new RSACryptoServiceProvider(cspParams);
             _sp.FromXmlString(readKeyFile(keyFileName));
@@ -47,7 +47,7 @@ namespace RSAService.Tools
             return StringHelper.BytesToHexString(param.Exponent);
         }
 
-        public static String getRSA_M(String keyFileName)
+        public  String getRSA_M(String keyFileName)
         {
             RSACryptoServiceProvider _sp = new RSACryptoServiceProvider(cspParams);
             _sp.FromXmlString(readKeyFile(keyFileName));
@@ -56,7 +56,7 @@ namespace RSAService.Tools
             return StringHelper.BytesToHexString(param.Modulus);
         }
 
-        public static String Decrypt(String content,String  keyFileName)
+        public  String Decrypt(String content,String  keyFileName)
         {
             RSACryptoServiceProvider _sp = new RSACryptoServiceProvider(cspParams);
             _sp.FromXmlString(readKeyFile(keyFileName));
@@ -73,7 +73,7 @@ namespace RSAService.Tools
 
         }
 
-        private static String readKeyFile(String keyFileName)
+        private  String readKeyFile(String keyFileName)
         {
             string path = keyFileName;
             System.IO.StreamReader reader = new StreamReader(path + ".xml");

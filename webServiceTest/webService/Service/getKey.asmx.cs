@@ -8,7 +8,7 @@ using RSAService.Tools;
 using System.Configuration;
 using DALService.Tools;
 
-namespace webService.Service
+namespace RSAService.Service
 {
     /// <summary>
     /// getKey 的摘要说明
@@ -24,7 +24,7 @@ namespace webService.Service
         [WebMethod]
         public string constructKey()
         {
-            string path = RSAUtils.GetKeyFunction();
+            string path = new RSAUtils().GetKeyFunction();
             path = Server.MapPath("~/MyXml/") +path + ConfigurationManager.AppSettings["rsaPrivateKeyFilePath"];
             return path;
         }
@@ -32,10 +32,11 @@ namespace webService.Service
         [WebMethod]
         public String get(String path)
         {
+            RSAUtils rsa = new RSAUtils();
             JavaScriptSerializer jss = new JavaScriptSerializer();
             Dictionary<string, string> dic = new Dictionary<string, string>();
-            dic.Add("RSA_E", RSAUtils.getRSA_E(path));
-            dic.Add("RSA_M", RSAUtils.getRSA_M(path));
+            dic.Add("RSA_E", rsa.getRSA_E(path));
+            dic.Add("RSA_M", rsa.getRSA_M(path));
             string jsonstr = Json.Serializer(dic);
             return jsonstr;
         }

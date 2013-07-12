@@ -7,9 +7,6 @@ using SalesApplication.Models;
 using SalesApplication.Models.Objects;
 using SalesApplication.Tools;
 using System.Configuration;
-using SalesApplication.ServiceReference1;
-using SalesApplication.ServiceReference2;
-using SalesApplication.ServiceReference3;
 using SalesApplication.DaoServiceReference;
 using System.Web.Script.Serialization;
 using System.Collections;
@@ -20,6 +17,9 @@ using System.Text;
 using System.Reflection;
 
 using DALService.Objects;
+using SalesApplication.RSAServiceReference;
+using SalesApplication.DecServiceReference;
+using SalesApplication.ValidateServiceReference;
 
 namespace SalesApplication.Controllers
 {

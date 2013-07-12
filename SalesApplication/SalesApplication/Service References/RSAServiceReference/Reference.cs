@@ -8,20 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesApplication.ServiceReference2 {
+namespace SalesApplication.RSAServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.getKeySoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RSAServiceReference.getKeySoap")]
     public interface getKeySoap {
         
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 constructKeyResult 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/constructKey", ReplyAction="*")]
-        SalesApplication.ServiceReference2.constructKeyResponse constructKey(SalesApplication.ServiceReference2.constructKeyRequest request);
+        SalesApplication.RSAServiceReference.constructKeyResponse constructKey(SalesApplication.RSAServiceReference.constructKeyRequest request);
         
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 path 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/get", ReplyAction="*")]
-        SalesApplication.ServiceReference2.getResponse get(SalesApplication.ServiceReference2.getRequest request);
+        SalesApplication.RSAServiceReference.getResponse get(SalesApplication.RSAServiceReference.getRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -31,12 +31,12 @@ namespace SalesApplication.ServiceReference2 {
     public partial class constructKeyRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="constructKey", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference2.constructKeyRequestBody Body;
+        public SalesApplication.RSAServiceReference.constructKeyRequestBody Body;
         
         public constructKeyRequest() {
         }
         
-        public constructKeyRequest(SalesApplication.ServiceReference2.constructKeyRequestBody Body) {
+        public constructKeyRequest(SalesApplication.RSAServiceReference.constructKeyRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -58,12 +58,12 @@ namespace SalesApplication.ServiceReference2 {
     public partial class constructKeyResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="constructKeyResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference2.constructKeyResponseBody Body;
+        public SalesApplication.RSAServiceReference.constructKeyResponseBody Body;
         
         public constructKeyResponse() {
         }
         
-        public constructKeyResponse(SalesApplication.ServiceReference2.constructKeyResponseBody Body) {
+        public constructKeyResponse(SalesApplication.RSAServiceReference.constructKeyResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -92,12 +92,12 @@ namespace SalesApplication.ServiceReference2 {
     public partial class getRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="get", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference2.getRequestBody Body;
+        public SalesApplication.RSAServiceReference.getRequestBody Body;
         
         public getRequest() {
         }
         
-        public getRequest(SalesApplication.ServiceReference2.getRequestBody Body) {
+        public getRequest(SalesApplication.RSAServiceReference.getRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -126,12 +126,12 @@ namespace SalesApplication.ServiceReference2 {
     public partial class getResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference2.getResponseBody Body;
+        public SalesApplication.RSAServiceReference.getResponseBody Body;
         
         public getResponse() {
         }
         
-        public getResponse(SalesApplication.ServiceReference2.getResponseBody Body) {
+        public getResponse(SalesApplication.RSAServiceReference.getResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -154,12 +154,12 @@ namespace SalesApplication.ServiceReference2 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface getKeySoapChannel : SalesApplication.ServiceReference2.getKeySoap, System.ServiceModel.IClientChannel {
+    public interface getKeySoapChannel : SalesApplication.RSAServiceReference.getKeySoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class getKeySoapClient : System.ServiceModel.ClientBase<SalesApplication.ServiceReference2.getKeySoap>, SalesApplication.ServiceReference2.getKeySoap {
+    public partial class getKeySoapClient : System.ServiceModel.ClientBase<SalesApplication.RSAServiceReference.getKeySoap>, SalesApplication.RSAServiceReference.getKeySoap {
         
         public getKeySoapClient() {
         }
@@ -181,27 +181,27 @@ namespace SalesApplication.ServiceReference2 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SalesApplication.ServiceReference2.constructKeyResponse SalesApplication.ServiceReference2.getKeySoap.constructKey(SalesApplication.ServiceReference2.constructKeyRequest request) {
+        SalesApplication.RSAServiceReference.constructKeyResponse SalesApplication.RSAServiceReference.getKeySoap.constructKey(SalesApplication.RSAServiceReference.constructKeyRequest request) {
             return base.Channel.constructKey(request);
         }
         
         public string constructKey() {
-            SalesApplication.ServiceReference2.constructKeyRequest inValue = new SalesApplication.ServiceReference2.constructKeyRequest();
-            inValue.Body = new SalesApplication.ServiceReference2.constructKeyRequestBody();
-            SalesApplication.ServiceReference2.constructKeyResponse retVal = ((SalesApplication.ServiceReference2.getKeySoap)(this)).constructKey(inValue);
+            SalesApplication.RSAServiceReference.constructKeyRequest inValue = new SalesApplication.RSAServiceReference.constructKeyRequest();
+            inValue.Body = new SalesApplication.RSAServiceReference.constructKeyRequestBody();
+            SalesApplication.RSAServiceReference.constructKeyResponse retVal = ((SalesApplication.RSAServiceReference.getKeySoap)(this)).constructKey(inValue);
             return retVal.Body.constructKeyResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SalesApplication.ServiceReference2.getResponse SalesApplication.ServiceReference2.getKeySoap.get(SalesApplication.ServiceReference2.getRequest request) {
+        SalesApplication.RSAServiceReference.getResponse SalesApplication.RSAServiceReference.getKeySoap.get(SalesApplication.RSAServiceReference.getRequest request) {
             return base.Channel.get(request);
         }
         
         public string get(string path) {
-            SalesApplication.ServiceReference2.getRequest inValue = new SalesApplication.ServiceReference2.getRequest();
-            inValue.Body = new SalesApplication.ServiceReference2.getRequestBody();
+            SalesApplication.RSAServiceReference.getRequest inValue = new SalesApplication.RSAServiceReference.getRequest();
+            inValue.Body = new SalesApplication.RSAServiceReference.getRequestBody();
             inValue.Body.path = path;
-            SalesApplication.ServiceReference2.getResponse retVal = ((SalesApplication.ServiceReference2.getKeySoap)(this)).get(inValue);
+            SalesApplication.RSAServiceReference.getResponse retVal = ((SalesApplication.RSAServiceReference.getKeySoap)(this)).get(inValue);
             return retVal.Body.getResult;
         }
     }

@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesApplication.ServiceReference1 {
+namespace SalesApplication.DecServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.decrpytSoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DecServiceReference.decrpytSoap")]
     public interface decrpytSoap {
         
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 strDic 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/dec", ReplyAction="*")]
-        SalesApplication.ServiceReference1.decResponse dec(SalesApplication.ServiceReference1.decRequest request);
+        SalesApplication.DecServiceReference.decResponse dec(SalesApplication.DecServiceReference.decRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -27,12 +27,12 @@ namespace SalesApplication.ServiceReference1 {
     public partial class decRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="dec", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference1.decRequestBody Body;
+        public SalesApplication.DecServiceReference.decRequestBody Body;
         
         public decRequest() {
         }
         
-        public decRequest(SalesApplication.ServiceReference1.decRequestBody Body) {
+        public decRequest(SalesApplication.DecServiceReference.decRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -65,12 +65,12 @@ namespace SalesApplication.ServiceReference1 {
     public partial class decResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="decResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference1.decResponseBody Body;
+        public SalesApplication.DecServiceReference.decResponseBody Body;
         
         public decResponse() {
         }
         
-        public decResponse(SalesApplication.ServiceReference1.decResponseBody Body) {
+        public decResponse(SalesApplication.DecServiceReference.decResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -93,12 +93,12 @@ namespace SalesApplication.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface decrpytSoapChannel : SalesApplication.ServiceReference1.decrpytSoap, System.ServiceModel.IClientChannel {
+    public interface decrpytSoapChannel : SalesApplication.DecServiceReference.decrpytSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class decrpytSoapClient : System.ServiceModel.ClientBase<SalesApplication.ServiceReference1.decrpytSoap>, SalesApplication.ServiceReference1.decrpytSoap {
+    public partial class decrpytSoapClient : System.ServiceModel.ClientBase<SalesApplication.DecServiceReference.decrpytSoap>, SalesApplication.DecServiceReference.decrpytSoap {
         
         public decrpytSoapClient() {
         }
@@ -120,16 +120,16 @@ namespace SalesApplication.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SalesApplication.ServiceReference1.decResponse SalesApplication.ServiceReference1.decrpytSoap.dec(SalesApplication.ServiceReference1.decRequest request) {
+        SalesApplication.DecServiceReference.decResponse SalesApplication.DecServiceReference.decrpytSoap.dec(SalesApplication.DecServiceReference.decRequest request) {
             return base.Channel.dec(request);
         }
         
         public string dec(string strDic, string keyFileName) {
-            SalesApplication.ServiceReference1.decRequest inValue = new SalesApplication.ServiceReference1.decRequest();
-            inValue.Body = new SalesApplication.ServiceReference1.decRequestBody();
+            SalesApplication.DecServiceReference.decRequest inValue = new SalesApplication.DecServiceReference.decRequest();
+            inValue.Body = new SalesApplication.DecServiceReference.decRequestBody();
             inValue.Body.strDic = strDic;
             inValue.Body.keyFileName = keyFileName;
-            SalesApplication.ServiceReference1.decResponse retVal = ((SalesApplication.ServiceReference1.decrpytSoap)(this)).dec(inValue);
+            SalesApplication.DecServiceReference.decResponse retVal = ((SalesApplication.DecServiceReference.decrpytSoap)(this)).dec(inValue);
             return retVal.Body.decResult;
         }
     }

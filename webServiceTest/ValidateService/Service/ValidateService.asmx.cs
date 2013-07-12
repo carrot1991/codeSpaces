@@ -8,7 +8,7 @@ using SalesApplication.Models.Objects;
 using DALService.Objects;
 
 
-namespace ValidateService
+namespace ValidateService.Service
 {
     /// <summary>
     /// ValidateService 的摘要说明
@@ -25,32 +25,40 @@ namespace ValidateService
         public Boolean validate(String strDictionary)
         {
             Dictionary<string, string> hashMap = (Dictionary<string, string>)Json.Deserializer(strDictionary, typeof(Dictionary<string, string>));
-            foreach (var item in hashMap)
+            try
             {
-                Type t = null;
-                try
+
+                foreach (var item in hashMap)
                 {
-                    t = typeof(Sale).GetProperty(item.Key).PropertyType;
+                    Type t = null;
+                    try
+                    {
+                        t = typeof(Sale).GetProperty(item.Key).PropertyType;
+                    }
+                    catch (System.Exception ex)
+                    {
+                        t = typeof(Product).GetProperty(item.Key).PropertyType;
+                    }
+                    if (null == t)
+                        return false;
+                    try
+                    {
+                        var arg = Convert.ChangeType(item.Value, t);
+                    }
+                    catch (Exception e)
+                    {
+                        return false;
+                    }
                 }
-                catch (System.Exception ex)
-                {
-                    t = typeof(Product).GetProperty(item.Key).PropertyType;
-                }
-                if (null == t)
-                    return false;
-                try
-                {
-                    var arg = Convert.ChangeType(item.Value, t);
-                }
-                catch (Exception e)
-                {
-                    return false;
-                }
+                int unitprice = (int)(Convert.ChangeType((hashMap["unitprice"].ToString()), typeof(int)));
+                int cost = (int)(Convert.ChangeType((hashMap["cost"].ToString()), typeof(int)));
+                if (unitprice < cost) return false;
+                return true;
             }
-            int unitprice = (int)(Convert.ChangeType((hashMap["unitprice"].ToString()), typeof(int)));
-            int cost = (int)(Convert.ChangeType((hashMap["cost"].ToString()), typeof(int)));
-            if (unitprice < cost) return false;
-            return true;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

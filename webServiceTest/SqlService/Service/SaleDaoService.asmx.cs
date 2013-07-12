@@ -27,14 +27,19 @@ namespace SqlService.Service
         IDAL idal = (IDAL)Resolver.createInstance("SqlService.Service.SaleDaoService", "idal");
 
         [WebMethod]
-        public Boolean SaveSale(String strSale,String strProduct)
+        public Boolean SaveSale(String strSale, String strProduct)
         {
-
-            
-
-            Sale sale = (Sale)Json.Deserializer(strSale, typeof(Sale));
-            Product product = (Product)Json.Deserializer(strProduct, typeof(Product));
-            return idal.saveTWO(product,sale);
+            try
+            {
+                Sale sale = (Sale)Json.Deserializer(strSale, typeof(Sale));
+                Product product = (Product)Json.Deserializer(strProduct, typeof(Product));
+                return idal.saveTWO(product, sale);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
         }
 
     }

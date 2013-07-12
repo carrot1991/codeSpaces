@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesApplication.ServiceReference3 {
+namespace SalesApplication.ValidateServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference3.ValidateServiceSoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ValidateServiceReference.ValidateServiceSoap")]
     public interface ValidateServiceSoap {
         
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 strDictionary 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/validate", ReplyAction="*")]
-        SalesApplication.ServiceReference3.validateResponse validate(SalesApplication.ServiceReference3.validateRequest request);
+        SalesApplication.ValidateServiceReference.validateResponse validate(SalesApplication.ValidateServiceReference.validateRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -27,12 +27,12 @@ namespace SalesApplication.ServiceReference3 {
     public partial class validateRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="validate", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference3.validateRequestBody Body;
+        public SalesApplication.ValidateServiceReference.validateRequestBody Body;
         
         public validateRequest() {
         }
         
-        public validateRequest(SalesApplication.ServiceReference3.validateRequestBody Body) {
+        public validateRequest(SalesApplication.ValidateServiceReference.validateRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -61,12 +61,12 @@ namespace SalesApplication.ServiceReference3 {
     public partial class validateResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="validateResponse", Namespace="http://tempuri.org/", Order=0)]
-        public SalesApplication.ServiceReference3.validateResponseBody Body;
+        public SalesApplication.ValidateServiceReference.validateResponseBody Body;
         
         public validateResponse() {
         }
         
-        public validateResponse(SalesApplication.ServiceReference3.validateResponseBody Body) {
+        public validateResponse(SalesApplication.ValidateServiceReference.validateResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -89,12 +89,12 @@ namespace SalesApplication.ServiceReference3 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ValidateServiceSoapChannel : SalesApplication.ServiceReference3.ValidateServiceSoap, System.ServiceModel.IClientChannel {
+    public interface ValidateServiceSoapChannel : SalesApplication.ValidateServiceReference.ValidateServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ValidateServiceSoapClient : System.ServiceModel.ClientBase<SalesApplication.ServiceReference3.ValidateServiceSoap>, SalesApplication.ServiceReference3.ValidateServiceSoap {
+    public partial class ValidateServiceSoapClient : System.ServiceModel.ClientBase<SalesApplication.ValidateServiceReference.ValidateServiceSoap>, SalesApplication.ValidateServiceReference.ValidateServiceSoap {
         
         public ValidateServiceSoapClient() {
         }
@@ -116,15 +116,15 @@ namespace SalesApplication.ServiceReference3 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SalesApplication.ServiceReference3.validateResponse SalesApplication.ServiceReference3.ValidateServiceSoap.validate(SalesApplication.ServiceReference3.validateRequest request) {
+        SalesApplication.ValidateServiceReference.validateResponse SalesApplication.ValidateServiceReference.ValidateServiceSoap.validate(SalesApplication.ValidateServiceReference.validateRequest request) {
             return base.Channel.validate(request);
         }
         
         public bool validate(string strDictionary) {
-            SalesApplication.ServiceReference3.validateRequest inValue = new SalesApplication.ServiceReference3.validateRequest();
-            inValue.Body = new SalesApplication.ServiceReference3.validateRequestBody();
+            SalesApplication.ValidateServiceReference.validateRequest inValue = new SalesApplication.ValidateServiceReference.validateRequest();
+            inValue.Body = new SalesApplication.ValidateServiceReference.validateRequestBody();
             inValue.Body.strDictionary = strDictionary;
-            SalesApplication.ServiceReference3.validateResponse retVal = ((SalesApplication.ServiceReference3.ValidateServiceSoap)(this)).validate(inValue);
+            SalesApplication.ValidateServiceReference.validateResponse retVal = ((SalesApplication.ValidateServiceReference.ValidateServiceSoap)(this)).validate(inValue);
             return retVal.Body.validateResult;
         }
     }

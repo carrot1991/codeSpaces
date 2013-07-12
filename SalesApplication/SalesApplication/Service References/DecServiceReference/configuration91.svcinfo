@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="tAEiYo1JoNXXJ4z5mUngbq0zuT0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ya7hcYKNhMKPu+xT8/SKb12/KZA=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="decrpytSoap">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="decrpytSoap" contract="ServiceReference1.decrpytSoap" bindingType="basicHttpBinding" address="http://localhost:8722/Service/decrpyt.asmx" bindingConfiguration="decrpytSoap">
+    <endpoint name="decrpytSoap" contract="DecServiceReference.decrpytSoap" bindingType="basicHttpBinding" address="http://localhost:8722/Service/decrpyt.asmx" bindingConfiguration="decrpytSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8722/Service/decrpyt.asmx</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>decrpytSoap</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ServiceReference1.decrpytSoap</serializedValue>
+          <serializedValue>DecServiceReference.decrpytSoap</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
